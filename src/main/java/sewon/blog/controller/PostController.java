@@ -42,6 +42,12 @@ public class PostController {
         return "post/detail";
     }
 
+    @DeleteMapping("/{postId}")
+    public String deletePost(@PathVariable("postId") Long postId) {
+        postService.deletePost(postId);
+        return "redirect:/post/list";
+    }
+
     @GetMapping("/list")
     public String getPostList(Model model) {
         List<Post> postList = postService.findAll();
