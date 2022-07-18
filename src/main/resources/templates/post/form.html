@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>create Post</title>
+</head>
+<body>
+<form action="/post" method="post">
+    <div class = "form-group">
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
+        <br>
+
+        <label for="author">작성자</label>
+        <input type="text" id="author" name="author" placeholder="작성자를 입력하세요">
+        <br>
+
+        <label for="content">내용</label>
+        <br>
+        <textarea id="content" name="content" placeholder="내용을 입력하세요"></textarea>
+    </div>
+    <button type="submit">작성</button>
+</form>
+<button type="button" onclick="window.location.href='/'">홈으로</button>
+</body>
+</html>

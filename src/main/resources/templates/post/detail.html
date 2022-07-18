@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>post detail</title>
+</head>
+<body>
+<div>제목 : [[${post.title}]]</div>
+<div>내용 : [[${post.content}]]</div>
+<div>작성자 : [[${post.author}]]</div>
+<div>작성일시 : <span th:text="${#temporals.format(post.createdDate, 'yyyy년 MM월 dd일 HH:mm')}"></span></div>
+
+<button type="button" onclick="window.location.href='/'">홈으로</button>
+<button type="button" onclick="window.location.href='/post/list'">목록</button>
+<button type="button">수정</button>
+<button type="button">삭제</button>
+</body>
+</html>
