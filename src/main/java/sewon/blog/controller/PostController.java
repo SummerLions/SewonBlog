@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import sewon.blog.service.PostService;
-import sewon.blog.vo.postModel;
+import sewon.blog.vo.PostModel;
 
 import java.util.List;
 
@@ -16,15 +16,23 @@ import java.util.List;
 public class PostController {
     private final PostService postService;
 
-    @GetMapping("/new")
-    public String getPostForm() {
+    @GetMapping("/write")
+    public String getPostForm(Model model) {
+        model.addAttribute("post", new Post());
+        return "post/form";
+    }
+
+    @GetMapping("/write/{postId}")
+    public String getEditForm(@PathVariable("postId") Long postId, Model model) {
+        Post post = postService.findPostById(postId);
+        model.addAttribute("post", post);
         return "post/form";
     }
 
     @PostMapping("")
-    public String createPost(postModel postModel) {
-        Long id = postService.savePost(postModel);
-        return "redirect:/post/" + id;
+    public String savePost(PostModel postModel) {
+        Post post = postService.savePost(postModel);
+        return "redirect:/post/" + post.getId();
     }
 
     @GetMapping("/{postId}")

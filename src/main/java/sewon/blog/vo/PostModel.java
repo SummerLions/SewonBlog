@@ -5,7 +5,8 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class postModel {
+public class PostModel {
+    private Long id;
     private String title;
     private String content;
     private String author;
