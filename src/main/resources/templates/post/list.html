@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>post list</title>
+</head>
+<body>
+<a th:each="post : ${posts}">
+    <a th:href="@{/post/{postId}(postId = ${post.id})}" th:text="${post.title}"></a>
+</a>
+<br>
+<button type="button" onclick="window.location.href='/'">홈으로</button>
+</body>
+</html>
